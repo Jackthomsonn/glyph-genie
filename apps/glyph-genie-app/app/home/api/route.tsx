@@ -4,6 +4,8 @@ import { withAccelerate } from "@prisma/extension-accelerate";
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 
+export const maxDuration = 300;
+
 const client = new PrismaClient().$extends(withAccelerate())
 
 const openai = new OpenAI({
