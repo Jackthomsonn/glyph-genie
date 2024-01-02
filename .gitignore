@@ -1,0 +1,8 @@
+**/**/result.json
+node_modules
+.env
+.vercel
+.turbo
+bin/
+.DS_Store
+apps/infrastructure/.terraform/
