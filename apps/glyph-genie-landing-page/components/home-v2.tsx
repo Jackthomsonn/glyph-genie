@@ -5,7 +5,7 @@ export function HomeV2() {
   return (
     <div className="flex min-h-screen md:max-h-screen bg-slate-900">
       <div className="flex flex-col md:flex-row gap-2 m-2 flex-1">
-        <section className="flex justify-center items-center py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-indigo-500 to-indigo-900 rounded-xl">
+        <section className="flex flex-0 md:flex-1 justify-center items-center py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-indigo-500 to-indigo-900 rounded-xl">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-4">
@@ -16,10 +16,10 @@ export function HomeV2() {
                   Unlock Creativity with GlyphGenie: Where Symbols Speak Volumes
                 </p>
                 <div className="flex justify-evenly items-center">
-                  <Image src={"/m1.jpg"} alt="Mushroom 1" width={48} height={48} className="rounded-xl" />
-                  <Image src={"/m2.jpg"} alt="Mushroom 1" width={48} height={48} className="rounded-xl" />
-                  <Image src={"/m3.jpg"} alt="Mushroom 1" width={48} height={48} className="rounded-xl" />
-                  <Image src={"/m4.jpg"} alt="Mushroom 1" width={48} height={48} className="rounded-xl" />
+                  <Image src={"/m1.jpg"} alt="Mushroom 1" width={96} height={96} className="rounded-xl" />
+                  <Image src={"/m2.jpg"} alt="Mushroom 1" width={96} height={96} className="rounded-xl" />
+                  <Image src={"/m3.jpg"} alt="Mushroom 1" width={96} height={96} className="rounded-xl" />
+                  <Image src={"/m4.jpg"} alt="Mushroom 1" width={96} height={96} className="rounded-xl" />
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ export function HomeV2() {
                     Sign up and get started
                   </Link>
                 </div>
-                <div className='pb-2'>
+                <div className='pb-8'>
                   <Image src={"/carrot-with-hat.jpg"} alt="Carrot with a hat" width={500} height={200} className="rounded-xl w-full" />
                 </div>
               </div>
