@@ -1,7 +1,6 @@
+import { LinkIcon } from 'lucide-react';
 import Image from 'next/image';
-import Link from "next/link";
 import { Button } from './ui/button';
-import { LinkIcon, TableIcon } from 'lucide-react';
 
 export function HomeV2() {
   return (
