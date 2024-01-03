@@ -68,12 +68,28 @@ module.exports = {
 				"slide-left": {
 					from: { transform: "translateX(100%)" },
 					to: { transform: "translateX(0)" },
-				}
+				},
+				"images-sliding-left": {
+					from: { transform: "translateX(120vw)" },
+					to: { transform: "translateX(-120vw)" },
+				},
+				"images-sliding-right": {
+					from: { transform: "translateX(-120vw)" },
+					to: { transform: "translateX(120vw)" },
+				},
+				"images-floating": {
+					from: { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-40%)" },
+					to: { transform: "translateY(0)" },
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 				"slide-left": "slide-left 0.2s ease-in-out",
+				"images-sliding-left": "images-sliding-left 20s linear infinite",
+				"images-sliding-right": "images-sliding-right 20s linear infinite",
+				"images-floating": "images-floating 20s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite",
 			},
 		},
 	},
