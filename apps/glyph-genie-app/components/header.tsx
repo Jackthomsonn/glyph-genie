@@ -9,10 +9,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
-const createCheckOutSession = async (userId?: string | null) => {
+const createCheckOutSession = async (userId?: string | null, price: number) => {
   const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
   const { data } = await axios.post('/payment/api', JSON.stringify({
-    userId
+    userId,
+    price
   }));
 
   const result = await stripe?.redirectToCheckout({
@@ -51,9 +52,9 @@ export const Header = () => {
                 <DropdownMenuContent>
                   <DropdownMenuLabel>Available Packages</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => createCheckOutSession(user?.id)}>10 credits</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => createCheckOutSession(user?.id)}>50 credits</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => createCheckOutSession(user?.id)}>100 credits</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => createCheckOutSession(user?.id, 10)}>10 credits</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => createCheckOutSession(user?.id, 50)}>50 credits</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => createCheckOutSession(user?.id, 100)}>100 credits</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu></> : <Button className="bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
               <Link2Icon className="mr-2" size={18} /> Get Started

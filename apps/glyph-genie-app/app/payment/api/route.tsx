@@ -3,17 +3,33 @@ import { Stripe } from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
 
+const prices = {
+  production: {
+    10: 'price_1OUxp1LzoIyAumTjwwA52TLm',
+    50: 'price_1OUxpELzoIyAumTjxGFFMqRa',
+    100: 'price_1OUxpQLzoIyAumTjFjVRvEOd'
+  },
+  development: {
+    10: 'price_1OUTu2LzoIyAumTjHEEzkoRF',
+    50: 'price_1OUTu2LzoIyAumTjHEEzkoRF',
+    100: 'price_1OUTu2LzoIyAumTjHEEzkoRF'
+  }
+}
+
 export const POST = (async (req: NextRequest) => {
+  const { price, userId } = await req.json();
+  const environment = process.env.VERCEL_ENV as string;
+
   const session = await stripe.checkout.sessions.create({
     success_url: 'http://localhost:3000/home',
     line_items: [
       {
-        price: 'price_1OUTu2LzoIyAumTjHEEzkoRF',
+        price: (prices as any)[environment][price],
         quantity: 1,
       },
     ],
     metadata: {
-      userId: (await req.json()).userId
+      userId: userId
     },
     mode: 'payment',
   });
