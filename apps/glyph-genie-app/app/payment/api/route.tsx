@@ -21,7 +21,7 @@ export const POST = (async (req: NextRequest) => {
   const environment = process.env.VERCEL_ENV as string;
 
   const session = await stripe.checkout.sessions.create({
-    success_url: 'http://localhost:3000/home',
+    success_url: process.env.SUCCESS_URL as string,
     line_items: [
       {
         price: (prices as any)[environment][price],
