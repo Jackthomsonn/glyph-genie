@@ -1,1 +1,1 @@
-# Shell AI
+# Glyph Genie

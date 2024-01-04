@@ -14,7 +14,8 @@ export const POST = async (req: Request) => {
     },
     select: {
       userId: true,
-      creditAmount: true
+      creditAmount: true,
+      Images: { select: { url: true } }
     }
   })
 

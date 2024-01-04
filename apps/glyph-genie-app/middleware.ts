@@ -8,6 +8,7 @@ import { withAccelerate } from '@prisma/extension-accelerate'
 const client = new PrismaClient().$extends(withAccelerate())
 
 export default authMiddleware({
+  publicRoutes: ['/home'],
   async afterAuth(auth, req, evt) {
     if (!auth.userId && !auth.isPublicRoute) {
       return redirectToSignIn({ returnBackUrl: req.url });

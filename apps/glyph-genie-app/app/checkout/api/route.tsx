@@ -3,8 +3,8 @@ import { withAccelerate } from '@prisma/extension-accelerate';
 import { NextRequest } from 'next/server';
 import { Stripe } from 'stripe';
 
-const stripe = new Stripe('sk_test_51LnrIRLzoIyAumTjjGfpar8jzUzNerrqB54URFQKPaf6vcjWwQKVRvLY6uzP8R6oliEQOATRgS9WK1nWYGTi83j900sJbfeUdd')
-const secret = "whsec_bv48agwtW6Xw0SVUEabPfTa5bIEG3IhT";
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
+const secret = process.env.WEBHOOK_SECRET as string;
 
 const client = new PrismaClient().$extends(withAccelerate())
 

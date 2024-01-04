@@ -41,6 +41,13 @@ export const POST = async (req: NextRequest) => {
       userId: auth.userId as string
     },
     data: {
+      Images: {
+        createMany: {
+          data: response.map(image => ({
+            url: image.url || ""
+          }))
+        }
+      },
       creditAmount: {
         decrement: n
       }

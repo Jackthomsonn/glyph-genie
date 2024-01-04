@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Shell AI",
+	name: "Glyph Genie",
 	description:
-		"Shell AI is a platform for building and deploying AI-powered applications.",
+		"Unlock Creativity with GlyphGenie: Where Symbols Speak Volumes - Create logos and icons for your business, brand, or projecty quickly and easily.",
 	mainNav: [
 		{
 			title: "Home",

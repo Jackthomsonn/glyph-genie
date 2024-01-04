@@ -4,9 +4,10 @@ import { useClerk } from "@clerk/nextjs";
 import { User } from "@prisma/client/edge";
 import { createContext, useContext } from "react";
 import useSWR from "swr";
+import { Image } from "./image";
 
 export type UserContextType = {
-  user: User | null
+  user: User & { Images: Image[] } | null
 }
 
 export const UserContext = createContext<UserContextType>({
@@ -21,10 +22,10 @@ const fetcher = (url: string, userId?: string) => fetch(url, { method: 'POST', b
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const { user } = useClerk();
-  const { data: genieUser } = useSWR<User>(user ? '/user/api' : null, (url: string) => fetcher(url, user?.id))
+  const { data: genieUser } = useSWR<User & { Images: Image[] }>(user ? '/user/api' : null, (url: string) => fetcher(url, user?.id))
 
   return (
-    <UserContext.Provider value={{ user: genieUser as User }}>
+    <UserContext.Provider value={{ user: genieUser as User & { Images: Image[] } }}>
       {children}
     </UserContext.Provider>
   );

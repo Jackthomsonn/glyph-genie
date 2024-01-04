@@ -1,10 +1,11 @@
 import { useImage } from "@/context/image";
 import { useStep } from "@/context/step";
 import { Loader2Icon } from "lucide-react";
+import { useEffect } from "react";
 import useSWR from "swr";
 import { z } from "zod";
+import { Sidebar } from "../sidebar";
 import { formSchema } from "./step-1";
-import { useEffect } from "react";
 
 const generateImages = async (key: string, data: z.infer<typeof formSchema>) => {
   const response = await fetch(key, {
@@ -33,10 +34,15 @@ export const StepTwo = () => {
   }, [data])
 
   return (
-    <div className="animate-slide-left w-full justify-center items-center flex flex-col">
-      <Loader2Icon className="animate-spin" />
-      <h1 className="text-center font-bold text-lg text-indigo-900 mt-4">Generating icons...</h1>
-      <p className="text-indigo-900 text-sm">This may take a few minutes</p>
-    </div>
+    <>
+      <Sidebar />
+      <div className="flex flex-1">
+        <div className="animate-slide-left w-full justify-center items-center flex flex-col">
+          <Loader2Icon className="animate-spin" />
+          <h1 className="text-center font-bold text-lg text-violet-900 mt-4">Generating icons...</h1>
+          <p className="text-slate-900 text-sm">This may take a few minutes</p>
+        </div>
+      </div>
+    </>
   )
 }

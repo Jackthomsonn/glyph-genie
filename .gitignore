@@ -6,3 +6,4 @@ node_modules
 bin/
 .DS_Store
 apps/infrastructure/.terraform/
+.env*.local

@@ -7,7 +7,6 @@ import { UserProvider } from "@/context/user";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
-import { PrismaClient } from "@prisma/client/edge";
 
 export const metadata: Metadata = {
 	title: {
