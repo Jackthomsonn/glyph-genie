@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
-const createCheckOutSession = async (userId?: string | null, price: number) => {
+const createCheckOutSession = async (userId?: string | null, price?: number) => {
   const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
   const { data } = await axios.post('/payment/api', JSON.stringify({
     userId,
