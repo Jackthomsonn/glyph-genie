@@ -5,8 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { BoxIcon, InfoIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Component() {
+  const { push } = useRouter();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -78,7 +81,7 @@ export default function Component() {
                         </div>
                       </CardContent>
                       <CardFooter>
-                        <Button className="w-full bg-violet-800 text-white hover:bg-violet-900">
+                        <Button className="w-full bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
                           <BoxIcon className="mr-2 h-4 w-4" /> Get started
                         </Button>
                       </CardFooter>
@@ -103,7 +106,7 @@ export default function Component() {
                         </div>
                       </CardContent>
                       <CardFooter>
-                        <Button className="w-full bg-violet-800 text-white hover:bg-violet-900">
+                        <Button className="w-full bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
                           <BoxIcon className="mr-2 h-4 w-4" /> Get started
                         </Button>
                       </CardFooter>
@@ -128,7 +131,7 @@ export default function Component() {
                         </div>
                       </CardContent>
                       <CardFooter>
-                        <Button className="w-full bg-violet-800 text-white hover:bg-violet-900">
+                        <Button className="w-full bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
                           <BoxIcon className="mr-2 h-4 w-4" /> Get started
                         </Button>
                       </CardFooter>
