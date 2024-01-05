@@ -11,7 +11,7 @@ export const Sidebar = () => {
   return (
     <>
       <div className="flex flex-col space-y-4 p-8 md:hidden border-2 border-slate-100">
-        <div className="flex">
+        <div className="flex justify-center items-center">
           <Link
             className="group flex items-center px-2 py-2 text-sm font-medium text-gray-500 rounded-md"
             href="dashboard"

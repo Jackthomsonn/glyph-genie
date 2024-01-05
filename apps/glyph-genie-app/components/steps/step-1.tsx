@@ -7,6 +7,7 @@ import { Sidebar } from "../sidebar"
 import { Button } from "../ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
+import { ArrowRightIcon, BotIcon } from "lucide-react"
 
 const MAX_ITERATIONS = 5;
 
@@ -66,13 +67,16 @@ export const StepOne = () => {
                 <FormItem>
                   <FormLabel>How many icons would you like to generate? (1 credit per icon)</FormLabel>
                   <FormControl>
-                    <Input min={1} max={maxIterations} type="number" {...field} onChange={event => field.onChange(+event.target.value)} />
+                    <Input min={1} step={1} max={maxIterations} type="number" {...field} onChange={event => field.onChange(+event.target.value)} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full h-auto">Generate icons for {form.watch('iterations')} credits (max five at a time)</Button>
+            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full flex items-center">
+              Generate icons for {form.watch('iterations')} {form.watch('iterations') === 1 ? "credit" : "credits"}
+              <ArrowRightIcon size={18} className="ml-2" />
+            </Button>
           </form>
         </Form>
       </div>
