@@ -6,8 +6,7 @@ import { ErrorBox } from "./error";
 import { Header } from "./header";
 
 export function Dashboard() {
-  const { steps, currentStep, setCurrentStep } = useStep();
-  const { setImages } = useImage()
+  const { steps, currentStep } = useStep();
 
   return (
     <div className="flex min-h-screen md:max-h-screen">

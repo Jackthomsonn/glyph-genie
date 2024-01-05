@@ -32,7 +32,6 @@ export const POST = (async (req: NextRequest) => {
 
       return new Response('Success', { status: 200 });
     default:
-      console.log('Broken')
       return new Response(`Unhandled event type ${event.type}`, { status: 400 });
   }
 });

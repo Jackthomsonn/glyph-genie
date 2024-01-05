@@ -8,6 +8,8 @@ import { Button } from "../ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
 
+const MAX_ITERATIONS = 5;
+
 export const formSchema = z.object({
   prompt: z.string().min(2).max(500),
   iterations: z.number().min(1).max(100),
@@ -29,6 +31,8 @@ export const StepOne = () => {
     setCurrentStep(2);
     setStepData(values);
   }
+
+  const maxIterations = Math.min(genieUser?.creditAmount || 0, MAX_ITERATIONS);
 
   return <>
     <Sidebar />
@@ -62,13 +66,13 @@ export const StepOne = () => {
                 <FormItem>
                   <FormLabel>How many icons would you like to generate? (1 credit per icon)</FormLabel>
                   <FormControl>
-                    <Input min={1} max={genieUser?.creditAmount} type="number" {...field} onChange={event => field.onChange(+event.target.value)} />
+                    <Input min={1} max={maxIterations} type="number" {...field} onChange={event => field.onChange(+event.target.value)} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full">Generate icons for {form.watch('iterations')} credits</Button>
+            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full">Generate icons for {form.watch('iterations')} credits (max five at a time)</Button>
           </form>
         </Form>
       </div>

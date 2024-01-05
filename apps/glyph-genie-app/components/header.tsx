@@ -74,13 +74,13 @@ export const Header = () => {
                 <DropdownMenuLabel>My account ({genieUser?.creditAmount} credits)</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
-                    <LogOutIcon className="mr-2 h-4 w-4" />
-                    <span>Logout</span>
-                  </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => openUserProfile()} className="cursor-pointer">
                     <CogIcon className="mr-2 h-4 w-4" />
                     <span>Manage my account</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
+                    <LogOutIcon className="mr-2 h-4 w-4" />
+                    <span>Logout</span>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
