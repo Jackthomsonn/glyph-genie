@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
+import { put } from "@vercel/blob";
 
 export const maxDuration = 300;
 
@@ -20,10 +21,23 @@ const dalle3Generate = async (prompt: string, n: number): Promise<OpenAI.Images.
       model: 'dall-e-3',
       quality: 'hd',
       prompt,
-      size: '1024x1024'
+      size: '1024x1024',
+      response_format: 'b64_json'
     });
 
-    images.push(response.data[0]);
+    const base64Image = response.data[0].b64_json?.replace(/^data:image\/\w+;base64,/, '');
+
+    const imageBuffer = Buffer.from(base64Image || "", 'base64');
+
+    const imageBlob = new Blob([imageBuffer], { type: 'image/jpeg' })
+
+    console.log('going to store...')
+
+    const { url } = await put(`${response.data[0].revised_prompt}.jpg`, imageBlob, { access: 'public' })
+
+    console.log('stored!')
+
+    images.push({ ...response.data[0], url });
   }
 
   return images;
@@ -34,7 +48,7 @@ export const POST = async (req: NextRequest) => {
 
   const auth = getAuth(req);
 
-  const response = await dalle3Generate(prompt, n);
+  const response = await dalle3Generate(prompt, n)
 
   await client.user.update({
     where: {
