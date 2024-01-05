@@ -41,7 +41,7 @@ export const StepOne = () => {
       <div className="flex flex-2 flex-col space-y-4 w-full container pt-12 pb-12">
         <div className="space-y-4">
           <div className="inline-block rounded-lg px-3 py-1 text-sm bg-green-200 font-bold text-green-900 subpixel-antialiased">Step One</div>
-          <h2 className="text-3xl font-bold tracking-tighter subpixel-antialiased border-b-2 border-slate-50 pb-4">Design Your Custom Icons Here</h2>
+          <h2 className="text-3xl font-bold tracking-tighter subpixel-antialiased border-b-2 border-gray-50 pb-4">Design Your Custom Icons Here</h2>
         </div>
 
         <Form {...form}>
@@ -74,7 +74,7 @@ export const StepOne = () => {
               )}
             />
             <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full flex items-center">
-              Generate icons for {form.watch('iterations')} {form.watch('iterations') === 1 ? "credit" : "credits"}
+              Generate icons for {form.watch('iterations')} {form.watch('iterations') === 1 ? "credit" : "Genie Points"}
               <ArrowRightIcon size={18} className="ml-2" />
             </Button>
           </form>

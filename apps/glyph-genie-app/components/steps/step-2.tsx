@@ -39,8 +39,8 @@ export const StepTwo = () => {
       <div className="flex flex-1">
         <div className="animate-slide-left w-full justify-center items-center flex flex-col">
           <Loader2Icon className="animate-spin" />
-          <h1 className="text-center font-bold text-lg text-violet-900 mt-4">Generating icons...</h1>
-          <p className="text-slate-900 text-sm">This may take a few minutes</p>
+          <h1 className="text-center font-bold text-lg text-gray-900 mt-4">Generating icons...</h1>
+          <p className="text-gray-900 text-sm">This may take a few minutes</p>
         </div>
       </div>
     </>
