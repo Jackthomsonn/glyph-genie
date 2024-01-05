@@ -72,7 +72,7 @@ export const StepOne = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full">Generate icons for {form.watch('iterations')} credits (max five at a time)</Button>
+            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full h-auto">Generate icons for {form.watch('iterations')} credits (max five at a time)</Button>
           </form>
         </Form>
       </div>
