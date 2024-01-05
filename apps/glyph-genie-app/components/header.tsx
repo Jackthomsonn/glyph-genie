@@ -59,7 +59,6 @@ export const Header = () => {
               </DropdownMenu></> : <Button className="bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
               <Link2Icon className="mr-2" size={18} /> Get Started
             </Button>
-
           }
 
           <div className={`${clsx(!user && 'hidden')}`}>

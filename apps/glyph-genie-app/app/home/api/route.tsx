@@ -51,7 +51,7 @@ export const POST = async (req: NextRequest) => {
   const user = await client.user.findUnique({ where: { userId: auth.userId as string } });
 
   if (user?.creditAmount as number < n) {
-    return new Error(JSON.stringify({ error: "Insufficient credits" }));
+    return new Response(JSON.stringify({ error: "Insufficient credits" }), { status: 400 });
   }
 
   const response = await dalle3Generate(prompt, n);
