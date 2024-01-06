@@ -66,7 +66,7 @@ export const StepOne = () => {
               name="iterations"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>How many icons would you like to generate? (1 credit per icon)</FormLabel>
+                  <FormLabel>How many icons would you like to generate? (1 Genie Point per icon)</FormLabel>
                   <FormControl>
                     <Input min={1} step={1} max={maxIterations} type="number" {...field} />
                   </FormControl>
