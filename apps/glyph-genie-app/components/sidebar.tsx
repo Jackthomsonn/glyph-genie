@@ -1,5 +1,5 @@
 import { useUser } from "@/context/user";
-import { BotIcon, CreditCardIcon, ImageIcon } from "lucide-react";
+import { BotIcon, CreditCardIcon, GemIcon, ImageIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -41,7 +41,7 @@ export const Sidebar = () => {
             className="group flex items-center px-2 py-2 text-sm font-medium text-gray-500 rounded-md"
             href="buy-genie-points"
           >
-            <ImageIcon className={`h-5 w-5 text-gray-400 ${pathName === '/buy-genie-points' && "text-violet-500 font-bold"}`} />
+            <GemIcon className={`h-5 w-5 text-gray-400 ${pathName === '/buy-genie-points' && "text-violet-500 font-bold"}`} />
             <span className={`ml-2 ${pathName === '/buy-genie-points' && "text-violet-500 font-bold"}`}>Buy Genie Points</span>
           </Link>
         </div>
@@ -72,7 +72,7 @@ export const Sidebar = () => {
               className="group flex items-center px-2 py-2 text-sm font-medium text-gray-500 rounded-md"
               href="buy-genie-points"
             >
-              <ImageIcon className={`h-5 w-5 text-gray-400 ${pathName === '/buy-genie-points' && "text-violet-500 font-bold"}`} />
+              <GemIcon className={`h-5 w-5 text-gray-400 ${pathName === '/buy-genie-points' && "text-violet-500 font-bold"}`} />
               <span className={`ml-2 ${pathName === '/buy-genie-points' && "text-violet-500 font-bold"}`}>Buy Genie Points</span>
             </Link>
           </div>
