@@ -85,7 +85,7 @@ export const StepOne = () => {
               )
             }
             <Button disabled={genieUser?.creditAmount === 0} type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full flex items-center">
-              Generate icons for {form.watch('iterations')} {form.watch('iterations') === 1 ? "credit" : "Genie Points"}
+              Generate icons for {form.watch('iterations')} {form.watch('iterations') === 1 ? "Genie Point" : "Genie Points"}
               <ArrowRightIcon size={18} className="ml-2" />
             </Button>
           </form>
