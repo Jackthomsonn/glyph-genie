@@ -8,6 +8,7 @@ import { Sidebar } from "../sidebar"
 import { Button } from "../ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
+import Link from "next/link"
 
 const MAX_ITERATIONS = 5;
 
@@ -73,7 +74,17 @@ export const StepOne = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full flex items-center">
+            {
+              genieUser?.creditAmount === 0 ? (
+                <div className="bg-violet-100 text-violet-900 p-4 rounded-lg space-y-2">
+                  <p className="font-bold">You have no Genie Points!</p>
+                  <p>Unlock the enchantment by purchasing your Genie points <Link className="font-bold" href="buy-genie-points">here</Link></p>
+                </div>
+              ) : (
+                null
+              )
+            }
+            <Button disabled={genieUser?.creditAmount === 0} type="submit" className="bg-violet-800 text-white hover:bg-violet-900 w-full flex items-center">
               Generate icons for {form.watch('iterations')} {form.watch('iterations') === 1 ? "credit" : "Genie Points"}
               <ArrowRightIcon size={18} className="ml-2" />
             </Button>
