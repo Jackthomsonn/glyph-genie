@@ -4,6 +4,7 @@ import { withAccelerate } from "@prisma/extension-accelerate";
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 import { put } from "@vercel/blob";
+import { randomUUID } from "crypto";
 
 export const maxDuration = 300;
 
@@ -31,11 +32,7 @@ const dalle3Generate = async (prompt: string, n: number): Promise<OpenAI.Images.
 
     const imageBlob = new Blob([imageBuffer], { type: 'image/jpeg' })
 
-    console.log('going to store...')
-
-    const { url } = await put(`${response.data[0].revised_prompt}.jpg`, imageBlob, { access: 'public' })
-
-    console.log('stored!')
+    const { url } = await put(`${randomUUID()}.jpg`, imageBlob, { access: 'public' });
 
     images.push({ ...response.data[0], url });
   }
