@@ -1,19 +1,19 @@
 import { useStep } from "@/context/step"
 import { useUser } from "@/context/user"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { ArrowRightIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Sidebar } from "../sidebar"
 import { Button } from "../ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
-import { ArrowRightIcon, BotIcon } from "lucide-react"
 
 const MAX_ITERATIONS = 5;
 
 export const formSchema = z.object({
   prompt: z.string().min(2).max(500),
-  iterations: z.number().min(1).max(100),
+  iterations: z.coerce.number().min(1).max(100),
 })
 
 export const StepOne = () => {
@@ -67,7 +67,7 @@ export const StepOne = () => {
                 <FormItem>
                   <FormLabel>How many icons would you like to generate? (1 credit per icon)</FormLabel>
                   <FormControl>
-                    <Input min={1} step={1} max={maxIterations} type="number" {...field} onChange={event => field.onChange(+event.target.value)} />
+                    <Input min={1} step={1} max={maxIterations} type="number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

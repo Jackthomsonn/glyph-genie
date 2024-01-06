@@ -1,5 +1,4 @@
-
-import { ImageProvider, useImage } from "@/context/image";
+import { ImageProvider } from "@/context/image";
 import { useStep } from "@/context/step";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import { ErrorBox } from "./error";
@@ -14,7 +13,7 @@ export function Dashboard() {
         <section className="flex flex-1 flex-col transition-all bg-white">
           <Header />
           <div className="flex flex-col md:flex-row h-full">
-            <ErrorBoundary errorComponent={() => <ErrorBox />}>
+            <ErrorBoundary errorComponent={f => <ErrorBox {...f} />}>
               <ImageProvider>
                 {steps.find(step => step.id === currentStep)?.component}
               </ImageProvider>
