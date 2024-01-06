@@ -41,7 +41,7 @@ export const Pricing = () => {
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
-            <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => createCheckOutSession(user?.id, 10)}>
+            <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => createCheckOutSession(user?.userId, 10)}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started £10
             </Button>
         }
@@ -61,7 +61,7 @@ export const Pricing = () => {
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
-            <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => createCheckOutSession(user?.id, 50)}>
+            <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => createCheckOutSession(user?.userId, 50)}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started £40
             </Button>
         }
@@ -80,7 +80,7 @@ export const Pricing = () => {
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
-            <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => createCheckOutSession(user?.id, 100)}>
+            <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => createCheckOutSession(user?.userId, 100)}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started £80
             </Button>
         }
