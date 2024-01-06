@@ -22,6 +22,7 @@ export const POST = (async (req: NextRequest) => {
 
   const session = await stripe.checkout.sessions.create({
     success_url: process.env.SUCCESS_URL as string,
+    cancel_url: 'https://www.glyphgenie.app/buy-genie-points',
     line_items: [
       {
         price: (prices as any)[environment][price],

@@ -37,7 +37,7 @@ export const Pricing = () => {
       <CardFooter>
         {
           pathName === "/home"
-            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('dashboard')}>
+            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('buy-genie-points')}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
@@ -57,7 +57,7 @@ export const Pricing = () => {
       <CardFooter>
         {
           pathName === "/home"
-            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('dashboard')}>
+            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('buy-genie-points')}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
@@ -76,7 +76,7 @@ export const Pricing = () => {
       <CardFooter>
         {
           pathName === "/home"
-            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('dashboard')}>
+            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('buy-genie-points')}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
