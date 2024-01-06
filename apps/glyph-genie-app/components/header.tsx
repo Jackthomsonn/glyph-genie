@@ -1,4 +1,3 @@
-import { useUser } from "@/context/user";
 import { useClerk } from "@clerk/nextjs";
 import clsx from "clsx";
 import { CogIcon, GridIcon, Link2Icon, LogOutIcon } from "lucide-react";
@@ -9,7 +8,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 
 export const Header = () => {
   const { openUserProfile, signOut, user } = useClerk()
-  const { user: genieUser } = useUser();
   const { push } = useRouter();
   const pathName = usePathname();
 
