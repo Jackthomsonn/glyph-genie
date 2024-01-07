@@ -109,7 +109,7 @@ export default function Component() {
 
         <footer className="w-full py-6 border-y-2 border-slate-50 flex items-center justify-center">
           <p className="text-xs text-zinc-500 dark:text-zinc-400 subpixel-antialiased text-center">
-            © 2024 GlyphGenie. All rights reserved. Made with ❤️ by <a href="https://passionfruitsoftware.com" target="__blank" className="text-violet-500 font-bold">PassionFruit Software</a>
+            © {new Date().getFullYear()} GlyphGenie. All rights reserved. Made with ❤️ by <a href="https://passionfruitsoftware.com" target="__blank" className="text-violet-500 font-bold">PassionFruit Software</a>
           </p>
         </footer>
       </div>
