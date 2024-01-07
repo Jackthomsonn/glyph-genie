@@ -22,7 +22,7 @@ export default function Component() {
                   GlyphGenie
                 </h1>
                 <p className="mx-auto md:w-1/2 text-white font-bold md:text-lg subpixel-antialiased">
-                  Unlock Creativity with GlyphGenie: Where Symbols Speak Volumes - Create logos and icons for your business, brand, or projecty quickly and easily.
+                  Unlock Creativity with GlyphGenie: Where Symbols Speak Volumes - Create logos and icons for your business, brand, or projects quickly and easily.
                 </p>
               </div>
             </div>
