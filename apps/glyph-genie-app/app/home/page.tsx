@@ -82,7 +82,7 @@ export default function Component() {
                     Our packages
                   </h1>
                   <p className="mx-auto text-gray-900 md:text-lg subpixel-antialiased">
-                    GlyphGenie offers a variety of packages to suit your needs. Whether you're a first time user or a power user, we have the right package for you. Look below to see our packages.
+                    GlyphGenie offers a variety of packages to suit your needs. Whether you're a first time user or a power user, we have the right package for you. Look below to see what works best for you.
                   </p>
 
                   <Pricing />
