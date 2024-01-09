@@ -17,7 +17,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.1",
     "@hookform/resolvers": "^3.3.3",
-    "@prisma/client": "latest",
+    "@prisma/client": "5.7.0",
     "@prisma/extension-accelerate": "^0.6.2",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
