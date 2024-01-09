@@ -3,6 +3,7 @@
 import { Header } from "@/components/header";
 import { Sidebar } from "@/components/sidebar";
 import { useUser } from "@/context/user";
+import Image from 'next/image';
 import Link from "next/link";
 
 export default function IndexPage() {
@@ -29,7 +30,7 @@ export default function IndexPage() {
                     </>
                     : <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 md:pb-12">
                       {user?.Images.map((im, index) => {
-                        return <img alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
+                        return <Image width={500} height={500} quality={100} alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
                       })}
                     </div>
                 }

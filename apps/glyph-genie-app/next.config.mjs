@@ -2,7 +2,7 @@
 const nextConfig = {
 	reactStrictMode: false,
 	images: {
-		domains: ["oaidalleapiprodscus.blob.core.windows.net"],
+		domains: ["pjsjlo04jviw3hss.public.blob.vercel-storage.com"],
 	},
 	redirects: async () => {
 		return [

@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { Sidebar } from "../sidebar";
 import { useStep } from "@/context/step";
 import { ArrowLeftIcon } from "lucide-react";
+import Image from "next/image";
 
 export const StepThree = () => {
   const { images } = useImage();
@@ -30,7 +31,7 @@ export const StepThree = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
           {images.map((im, index) => {
-            return <img alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
+            return <Image width={500} height={500} quality={100} alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
           })}
         </div>
       </div>

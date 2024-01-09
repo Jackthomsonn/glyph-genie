@@ -17,7 +17,7 @@ export default function Component() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-8 flex justify-center flex-col items-center">
-                <img alt="Image" src={'/beanie-potato.png'} className="rounded-lg" width={200} />
+                <Image alt="Image" src={'/beanie-potato.png'} className="rounded-lg" width={200} height={200} quality={100} />
                 <h1 className="text-3xl tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold subpixel-antialiased">
                   GlyphGenie
                 </h1>
@@ -61,10 +61,10 @@ export default function Component() {
                   </p>
 
                   <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
-                    <Image className="rounded-xl" alt="Image" width={500} height={500} src="/beanie-potato.png" />
-                    <Image className="rounded-xl" alt="Image" width={500} height={500} src="/h1.jpg" />
-                    <Image className="rounded-xl" alt="Image" width={500} height={500} src="/h2.jpg" />
-                    <Image className="rounded-xl" alt="Image" width={500} height={500} src="/h4.jpg" />
+                    <Image className="rounded-xl" alt="Image" width={500} height={500} quality={100} src="/beanie-potato.png" />
+                    <Image className="rounded-xl" alt="Image" width={500} height={500} quality={100} src="/h1.jpg" />
+                    <Image className="rounded-xl" alt="Image" width={500} height={500} quality={100} src="/h2.jpg" />
+                    <Image className="rounded-xl" alt="Image" width={500} height={500} quality={100} src="/h4.jpg" />
                   </div>
                 </div>
               </div>

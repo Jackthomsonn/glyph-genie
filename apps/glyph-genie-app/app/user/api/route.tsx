@@ -6,8 +6,6 @@ const client = new PrismaClient().$extends(withAccelerate())
 export const POST = async (req: Request) => {
   const { userId } = await req.json();
 
-  console.log(userId)
-
   const user = await client.user.findUnique({
     where: {
       userId

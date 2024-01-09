@@ -1,10 +1,11 @@
-import { useClerk } from "@clerk/nextjs";
-import clsx from "clsx";
-import { CogIcon, GridIcon, Link2Icon, LogOutIcon } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { useClerk } from "@clerk/nextjs";
+import clsx from "clsx";
+import { CogIcon, GridIcon, Link2Icon, LogOutIcon } from "lucide-react";
+import Image from 'next/image';
+import { usePathname, useRouter } from "next/navigation";
 
 export const Header = () => {
   const { openUserProfile, signOut, user } = useClerk()
@@ -15,7 +16,7 @@ export const Header = () => {
     <header className="flex w-full items-center gap-4 p-4 bg-gray-900">
       <div className="flex justify-between w-full items-center space-x-4">
         <div>
-          <img src="/beanie-potato.png" alt="Glyph Genie Logo" width={64} className={`rounded-lg ${pathName === '/home' && 'hidden'}`} />
+          <Image src="/beanie-potato.png" alt="Glyph Genie Logo" width={64} height={64} quality={100} className={`rounded-lg ${pathName === '/home' && 'hidden'}`} />
         </div>
         <div className="flex space-x-4">
           {
