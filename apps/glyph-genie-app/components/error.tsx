@@ -18,7 +18,7 @@ export const ErrorBox = ({
     setCurrentStep(1);
   }
   return (
-    <div className="flex w-full flex-col items-center justify-center space-y-4">
+    <div className="flex w-full h-full flex-col items-center justify-center space-y-4">
       <h1 className="text-3xl font-bold tracking-tighter text-slate-900 subpixel-antialiased">
         Something went wrong
       </h1>

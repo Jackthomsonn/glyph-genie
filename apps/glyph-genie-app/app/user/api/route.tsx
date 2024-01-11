@@ -13,7 +13,9 @@ export const POST = async (req: Request) => {
     select: {
       userId: true,
       creditAmount: true,
-      Images: { select: { url: true } }
+      Images: {
+        select: { url: true, createdAt: true }, orderBy: { createdAt: 'desc' }
+      }
     }
   })
 

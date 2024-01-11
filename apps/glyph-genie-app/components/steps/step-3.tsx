@@ -24,7 +24,7 @@ export const StepThree = () => {
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
             <ArrowLeftIcon className="text-gray-900 cursor-pointer" size={24} onClick={() => setCurrentStep(currentStep - 2)}></ArrowLeftIcon>
-            <div className="inline-block rounded-lg px-3 py-1 text-sm bg-green-200 font-bold text-green-900 subpixel-antialiased">Step Two</div>
+            <div className="inline-block rounded-lg px-3 py-1 text-sm bg-green-200 font-bold text-green-900 subpixel-antialiased">Final results</div>
           </div>
           <h2 className="text-3xl font-bold tracking-tighter subpixel-antialiased border-b-2 border-gray-50 pb-4">Your Creations</h2>
         </div>

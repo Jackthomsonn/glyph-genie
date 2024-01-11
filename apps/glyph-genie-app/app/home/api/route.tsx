@@ -14,7 +14,7 @@ const openai = new OpenAI({
   apiKey: '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',
 });
 
-const dalle3Generate = async (prompt: string, n: number): Promise<OpenAI.Images.Image[]> => {
+const dalle3Generate = async (prompt: string, n: number, vivid: boolean): Promise<OpenAI.Images.Image[]> => {
   const images: OpenAI.Images.Image[] = [];
 
   for (let i = 0; i < n; i++) {
@@ -23,7 +23,8 @@ const dalle3Generate = async (prompt: string, n: number): Promise<OpenAI.Images.
       quality: 'hd',
       prompt,
       size: '1024x1024',
-      response_format: 'b64_json'
+      response_format: 'b64_json',
+      style: vivid ? 'vivid' : 'natural'
     });
 
     const base64Image = response.data[0].b64_json?.replace(/^data:image\/\w+;base64,/, '');
@@ -41,7 +42,7 @@ const dalle3Generate = async (prompt: string, n: number): Promise<OpenAI.Images.
 }
 
 export const POST = async (req: NextRequest) => {
-  const { prompt, n } = await req.json();
+  const { prompt, n, vivid } = await req.json();
 
   const auth = getAuth(req);
 
@@ -51,7 +52,7 @@ export const POST = async (req: NextRequest) => {
     return new Response(JSON.stringify({ error: "Insufficient Genie Points" }), { status: 400 });
   }
 
-  const response = await dalle3Generate(prompt, n);
+  const response = await dalle3Generate(prompt, n, vivid);
 
   await client.user.update({
     where: {

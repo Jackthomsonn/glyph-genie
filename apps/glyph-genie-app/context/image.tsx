@@ -2,6 +2,7 @@ import { createContext, Dispatch, SetStateAction, useContext, useState } from "r
 
 export type Image = {
   url: string
+  createdAt: string
 }
 
 export type ImageContextType = {

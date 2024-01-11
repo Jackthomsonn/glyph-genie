@@ -20,7 +20,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      <div className="flex flex-col space-y-4 p-8 md:hidden border-2 border-gray-100">
+      <div className="flex flex-col space-y-4 p-8 lg:hidden border-2 border-gray-100">
         <div className="flex justify-start flex-wrap flex-col bg-gray-100 rounded-lg gap-4 p-2">
           <p className="ml-2 mt-2 font-bold text-sm text-gray-500">Navigation menu</p>
           <Link
@@ -51,7 +51,7 @@ export const Sidebar = () => {
           </div>
         </div>
       </div>
-      <div className="flex-col w-64 bg-white border-2 border-gray-50 hidden md:flex">
+      <div className="flex-col w-64 bg-white border-2 border-gray-50 hidden lg:flex">
         <nav className="flex flex-col flex-1 px-2 py-4 bg-white justify-between">
           <div className="flex flex-col">
             <Link

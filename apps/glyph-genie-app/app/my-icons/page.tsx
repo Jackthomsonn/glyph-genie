@@ -3,11 +3,12 @@
 import { Header } from "@/components/header";
 import { Sidebar } from "@/components/sidebar";
 import { useUser } from "@/context/user";
+import { Loader2Icon } from "lucide-react";
 import Image from 'next/image';
 import Link from "next/link";
 
 export default function IndexPage() {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
 
   return <>
     <div className="flex min-h-screen md:max-h-screen">
@@ -24,15 +25,16 @@ export default function IndexPage() {
                 </div>
 
                 {
-                  user?.Images.length === 0 ?
-                    <>
-                      <span className="font-medium text-md mt-8 text-left">You have no generated icons! Go and <Link href="dashboard" className="text-violet-500 font-bold">create some!</Link></span>
-                    </>
-                    : <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 md:pb-12">
-                      {user?.Images.map((im, index) => {
-                        return <Image width={500} height={500} quality={100} alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
-                      })}
-                    </div>
+                  isLoading ? <div className="flex justify-center items-center h-full"><Loader2Icon className="animate-spin" /></div> :
+                    user?.Images.length === 0 ?
+                      <>
+                        <span className="font-medium text-md mt-8 text-left">You have no generated icons! Go and <Link href="dashboard" className="text-violet-500 font-bold">create some!</Link></span>
+                      </>
+                      : <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 md:pb-12">
+                        {user?.Images.map((im, index) => {
+                          return <Image width={500} height={500} quality={100} alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
+                        })}
+                      </div>
                 }
               </div>
             </div>

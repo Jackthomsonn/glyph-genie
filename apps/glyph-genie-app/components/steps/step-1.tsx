@@ -2,19 +2,21 @@ import { useStep } from "@/context/step"
 import { useUser } from "@/context/user"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Sidebar } from "../sidebar"
 import { Button } from "../ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
-import Link from "next/link"
+import { Checkbox } from "../ui/checkbox"
 
 const MAX_ITERATIONS = 5;
 
 export const formSchema = z.object({
   prompt: z.string().min(2).max(500),
   iterations: z.coerce.number().min(1).max(100),
+  vivid: z.boolean().default(true),
 })
 
 export const StepOne = () => {
@@ -23,6 +25,7 @@ export const StepOne = () => {
     defaultValues: {
       prompt: "",
       iterations: 1,
+      vivid: true,
     },
   })
 
@@ -71,6 +74,30 @@ export const StepOne = () => {
                     <Input min={1} step={1} max={maxIterations} type="number" {...field} />
                   </FormControl>
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="vivid"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormControl>
+                    <Checkbox
+                      className=""
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>
+                      Generate hyper realistic icons
+                    </FormLabel>
+                    <FormDescription>
+                      These icons are more hyper-real and dramatic
+                    </FormDescription>
+                  </div>
                 </FormItem>
               )}
             />

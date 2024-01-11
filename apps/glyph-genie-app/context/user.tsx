@@ -7,11 +7,13 @@ import useSWR from "swr";
 import { Image } from "./image";
 
 export type UserContextType = {
-  user: User & { Images: Image[] } | null
+  user: User & { Images: Image[] } | null;
+  isLoading: boolean;
 }
 
 export const UserContext = createContext<UserContextType>({
-  user: null
+  user: null,
+  isLoading: false,
 });
 
 type UserProviderProps = {
@@ -22,10 +24,10 @@ const fetcher = (url: string, userId?: string) => fetch(url, { method: 'POST', b
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const { user } = useClerk();
-  const { data: genieUser } = useSWR<User & { Images: Image[] }>(user ? '/user/api' : null, (url: string) => fetcher(url, user?.id))
+  const { data: genieUser, isLoading } = useSWR<User & { Images: Image[] }>(user ? '/user/api' : null, (url: string) => fetcher(url, user?.id))
 
   return (
-    <UserContext.Provider value={{ user: genieUser as User & { Images: Image[] } }}>
+    <UserContext.Provider value={{ user: genieUser as User & { Images: Image[] }, isLoading }}>
       {children}
     </UserContext.Provider>
   );
