@@ -6,6 +6,7 @@ import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Image from 'next/image';
 import { ErrorBox } from "./error";
 import { Header } from "./header";
+import Link from "next/link";
 
 export function Dashboard() {
   const { steps, currentStep } = useStep();
