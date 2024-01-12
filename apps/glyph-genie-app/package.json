@@ -15,7 +15,7 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.1",
+    "@clerk/nextjs": "^4.29.3",
     "@hookform/resolvers": "^3.3.3",
     "@prisma/client": "latest",
     "@prisma/extension-accelerate": "^0.6.2",
