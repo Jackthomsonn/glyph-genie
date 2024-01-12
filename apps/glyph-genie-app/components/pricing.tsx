@@ -6,8 +6,10 @@ import { BoxIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { track } from "@vercel/analytics";
 
 const createCheckOutSession = async (userId?: string | null, price?: number) => {
+  track('buy-genie-points');
   const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
   const { data } = await axios.post('/payment/api', JSON.stringify({
     userId,
@@ -37,7 +39,10 @@ export const Pricing = () => {
       <CardFooter>
         {
           pathName === "/home"
-            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('buy-genie-points')}>
+            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => {
+              push('buy-genie-points');
+              track('get-started-packages');
+            }}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
@@ -57,7 +62,10 @@ export const Pricing = () => {
       <CardFooter>
         {
           pathName === "/home"
-            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('buy-genie-points')}>
+            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => {
+              push('buy-genie-points');
+              track('get-started-packages');
+            }}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :
@@ -76,7 +84,10 @@ export const Pricing = () => {
       <CardFooter>
         {
           pathName === "/home"
-            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => push('buy-genie-points')}>
+            ? <Button className="w-full bg-violet-800 text-white hover:bg-violet-900 h-full" onClick={() => {
+              push('buy-genie-points');
+              track('get-started-packages');
+            }}>
               <BoxIcon className="mr-2 h-4 w-4" /> Get started today
             </Button>
             :

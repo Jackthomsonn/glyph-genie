@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useClerk } from "@clerk/nextjs";
+import { track } from "@vercel/analytics";
 import clsx from "clsx";
 import { CogIcon, GridIcon, Link2Icon, LogOutIcon } from "lucide-react";
 import Image from 'next/image';
@@ -23,7 +24,10 @@ export const Header = () => {
             user && pathName === '/home' ? <Button className="bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
               <GridIcon className="mr-2" size={18} /> View Dashboard
             </Button> : user && pathName !== '/home' ?
-              null : <Button className="bg-violet-800 text-white hover:bg-violet-900" onClick={() => push('/dashboard')}>
+              null : <Button className="bg-violet-800 text-white hover:bg-violet-900" onClick={() => {
+                push('/dashboard');
+                track('get-started-header');
+              }}>
                 <Link2Icon className="mr-2" size={18} /> Get Started
               </Button>
           }

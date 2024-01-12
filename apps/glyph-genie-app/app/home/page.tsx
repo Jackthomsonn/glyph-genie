@@ -5,6 +5,7 @@ import { Pricing } from "@/components/pricing";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { track } from '@vercel/analytics';
 
 export default function Component() {
   const { push } = useRouter();
@@ -100,7 +101,10 @@ export default function Component() {
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 subpixel-antialiased">
                     Ready to get started?
                   </h1>
-                  <Button className="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded-lg text-3xl p-8" onClick={() => push('dashboard')}>Lets go</Button>
+                  <Button className="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded-lg text-3xl p-8" onClick={() => {
+                    push('dashboard');
+                    track('get-started-footer');
+                  }}>Lets go</Button>
                 </div>
               </div>
             </div>

@@ -1,15 +1,16 @@
 import { useStep } from "@/context/step"
 import { useUser } from "@/context/user"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { track } from "@vercel/analytics"
 import { ArrowRightIcon } from "lucide-react"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Sidebar } from "../sidebar"
 import { Button } from "../ui/button"
+import { Checkbox } from "../ui/checkbox"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
-import { Checkbox } from "../ui/checkbox"
 
 const MAX_ITERATIONS = 5;
 
@@ -33,6 +34,7 @@ export const StepOne = () => {
   const { user: genieUser } = useUser();
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
+    track('generate-icons');
     setCurrentStep(2);
     setStepData(values);
   }
