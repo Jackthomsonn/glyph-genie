@@ -1,6 +1,7 @@
 "use client";
 
 import { Header } from "@/components/header";
+import { ImageHolder } from "@/components/image-holder";
 import { Sidebar } from "@/components/sidebar";
 import { useUser } from "@/context/user";
 import { Loader2Icon } from "lucide-react";
@@ -15,7 +16,7 @@ export default function IndexPage() {
       <div className="flex flex-col md:flex-row gap-2 flex-1">
         <section className="flex flex-1 flex-col transition-all bg-white overflow-y-scroll">
           <Header />
-          <div className="flex flex-col md:flex-row h-full md:overflow-y-scroll">
+          <div className="flex flex-col lg:flex-row h-full md:overflow-y-scroll">
             <Sidebar />
             <div className="flex flex-1 md:overflow-y-scroll">
               <div className="flex flex-col w-full container pt-12 pb-12">
@@ -32,7 +33,7 @@ export default function IndexPage() {
                       </>
                       : <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 md:pb-12">
                         {user?.Images.map((im, index) => {
-                          return <Image width={500} height={500} quality={100} alt="Generated Icon Image" key={index} src={im.url} className="rounded-xl shadow-md w-full" />
+                          return <ImageHolder image={im} index={index} />
                         })}
                       </div>
                 }
