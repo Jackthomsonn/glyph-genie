@@ -11,7 +11,7 @@ export const maxDuration = 300;
 const client = new PrismaClient().$extends(withAccelerate())
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: process.env.OPEN_API_KEY
 });
 
 const dalle3Generate = async (prompt: string, n: number, vivid: boolean): Promise<OpenAI.Images.Image[]> => {
